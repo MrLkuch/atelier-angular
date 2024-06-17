@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CounterService } from '../counter.service';
 
 @Component({
   selector: 'app-btn-increment',
@@ -8,9 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './btn-increment.component.css'
 })
 export class BtnIncrementComponent {
-  public counter: number = 0;
-  increment(): number {
-    return ++this.counter;
+  constructor(private counterService: CounterService) { };
+  increment() {
+    this.counterService.increment();
   }
+
+
 
 }
